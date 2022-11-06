@@ -26,6 +26,7 @@ const playerChoice = getPlayerChoice();
         console.log("Draw! No points Awarded")
 
     }
+
     else if (
     (playerChoice === "scissors" && computerChoice === "paper") 
     || (playerChoice === "rock" && computerChoice === "scissors") 
@@ -34,6 +35,7 @@ const playerChoice = getPlayerChoice();
         console.log("Player wins 1 point!" + playerChoice + computerChoice);
         playerScore += 1;
     }
+    
     else {
         console.log("Computer wins 1 point!" + playerChoice + computerChoice);
         computerScore += 1;
@@ -45,6 +47,8 @@ function game() {
         playRound();
         console.log(playerScore + ' ' + computerScore)
     }
+
+
     if(playerScore === computerScore) {
         console.log("Draw, nobody wins the match!")
     }
