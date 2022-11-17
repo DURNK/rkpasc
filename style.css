@@ -1,0 +1,79 @@
+.container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-direction: column;
+
+}
+
+.header {
+    display: flex;
+    background-color: rgb(93, 93, 93);
+    MIN-height: auto;
+    min-width: 100%;
+}
+
+.game {
+    display: flex;
+    background-color: rgb(9, 9, 9);
+    font-weight: 300;
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 80vh;
+    min-width: 100%;
+    flex-wrap: wrap;
+}
+
+.ticker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.rock {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.paper {
+    background-color: antiquewhite;
+    color: black;
+}
+.scissors {
+    background-color: antiquewhite;
+    color: black;
+}
+
+
+
+
+
+.footer {
+    display: flex;
+    background-color: rgb(93, 93, 93);
+min-height:100vh;
+    min-width: 100%;
+}
+
+body{
+    margin:0px;
+}
+
+/* brutalist design, fonts change continiously when hovering over item
+/* rock is bold, paper is classic, scissors is slim and classic
+/* harsh colors backgrounds
+/* button text becomes bacground color, background color becomes black

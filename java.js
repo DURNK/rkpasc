@@ -1,6 +1,6 @@
 let computerScore = 0;
 let playerScore = 0;
-
+let playerChoice;
 
 function getComputerChoice() {
 let computerChoice;
@@ -12,15 +12,22 @@ return computerChoice;
 }
 
 function getPlayerChoice() {
-let playerChoice = prompt("Make your choice:");
-console.log("player choice is: " + playerChoice);
-return playerChoice;
+
+const buttons = document.querySelector(".buttons"); //selects the buttons div
+buttons.addEventListener('click', (e) => {
+    console.log(e.target.className);
+    playerChoice = e.target.className;
+    playRound();
+    
+    });
 }
 
-function playRound() {
 
+
+
+function playRound() {
 const computerChoice = getComputerChoice();
-const playerChoice = getPlayerChoice();
+
 
     if (playerChoice === computerChoice) {
         console.log("Draw! No points Awarded")
@@ -35,14 +42,23 @@ const playerChoice = getPlayerChoice();
         console.log("Player wins 1 point!" + playerChoice + computerChoice);
         playerScore += 1;
     }
-    
+
     else {
         console.log("Computer wins 1 point!" + playerChoice + computerChoice);
         computerScore += 1;
     }
 }
 
-function game() {
+
+getPlayerChoice();
+
+
+
+
+
+
+
+/*function game() {
     for (let i = 0; i<5; i++) {
         playRound();
         console.log(playerScore + ' ' + computerScore)
@@ -59,8 +75,32 @@ function game() {
         console.log("Computer Wins the Match!")
     }
 }
-
-
-
-
 game();
+*/
+/*const rock = document.querySelector(".rock");
+ rock.addEventListener('click', () => 
+ {
+    let playerChoice = "rock";
+    console.log(playerChoice);
+    return playerChoice;
+    
+ });
+  
+const paper = document.querySelector(".paper");
+ paper.addEventListener('click', () => 
+ {
+    let playerChoice = "paper";
+    console.log(playerChoice);
+    return playerChoice;
+    
+ });
+
+ const scissors = document.querySelector(".scissors");
+ scissors.addEventListener('click', () => 
+ {
+    let playerChoice = "scissors";
+    console.log(playerChoice);
+    return playerChoice;
+    
+ });
+ */
