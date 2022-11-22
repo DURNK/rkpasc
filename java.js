@@ -1,6 +1,7 @@
 let computerScore = 0;
 let playerScore = 0;
-let playerChoice;
+let playerChoice; //global variable that can be modified by the
+                    // getPlayerChoice function and passed to playRound
 
 function getComputerChoice() {
 let computerChoice;
@@ -15,10 +16,9 @@ function getPlayerChoice() {
 
 const buttons = document.querySelector(".buttons"); //selects the buttons div
 buttons.addEventListener('click', (e) => {
-    console.log(e.target.className);
-    playerChoice = e.target.className;
+    console.log(e.target.className); //e is the location of the selected button and classname is the name of the selected class
+    playerChoice = e.target.className; 
     playRound();
-    
     });
 }
 
@@ -27,11 +27,10 @@ buttons.addEventListener('click', (e) => {
 
 function playRound() {
 const computerChoice = getComputerChoice();
-
+const ticker = document.querySelector('.ticker')
 
     if (playerChoice === computerChoice) {
-        console.log("Draw! No points Awarded")
-
+        ticker.textContent = 'DRAW!';
     }
 
     else if (
@@ -40,11 +39,16 @@ const computerChoice = getComputerChoice();
     || (playerChoice === "paper" && computerChoice === "rock")) 
     {
         console.log("Player wins 1 point!" + playerChoice + computerChoice);
+        ticker.textContent = "Player wins 1 point!";
         playerScore += 1;
+        console.log(playerScore);
     }
 
     else {
         console.log("Computer wins 1 point!" + playerChoice + computerChoice);
+        ticker.textContent = "Computer wins 1 point!";
+
+        
         computerScore += 1;
     }
 }
