@@ -3,6 +3,8 @@ let playerScore = 0;
 let playerChoice; //global variable that can be modified by the
                     // getPlayerChoice function and passed to playRound
 
+//Game gets stuck after being reset, maybe we're not resetting everything
+                
 function getComputerChoice() {
 let computerChoice;
 const pickings = ["rock","paper","scissors"];
@@ -12,14 +14,39 @@ console.log("computer choice is: " + computerChoice);
 return computerChoice;
 }
 
-function getPlayerChoice() {
+function gameReset() {
+    const reset = document.querySelector('.header')
+    reset.style.removeProperty = 'pointer-events';
 
-const buttons = document.querySelector(".buttons"); //selects the buttons div
-buttons.addEventListener('click', (e) => {
+    reset.addEventListener('click', () => {
+
+        getPlayerChoice();
+});
+
+}
+
+function getPlayerChoice() {
+    const buttons = document.querySelector(".buttons"); //selects the buttons div
+    buttons.style.cssText = 'pointer-events: ';
+
+    buttons.addEventListener('click', (e) => {    
+    const ticker = document.querySelector('.ticker')
     console.log(e.target.className); //e is the location of the selected button and classname is the name of the selected class
     playerChoice = e.target.className; 
+    
+    
     playRound();
+
+
+    if (playerScore == 5 || computerScore == 5) {
+        buttons.style.cssText = 'pointer-events: none';
+        ticker.textContent = `Match ended, Scores: Player ${playerScore} and Comp ${computerScore} `;
+        playerScore = 0;
+        computerScore = 0;
+        gameReset();
+    }
     });
+   
 }
 
 
@@ -31,6 +58,7 @@ const ticker = document.querySelector('.ticker')
 
     if (playerChoice === computerChoice) {
         ticker.textContent = 'DRAW!';
+
     }
 
     else if (
@@ -42,14 +70,18 @@ const ticker = document.querySelector('.ticker')
         ticker.textContent = "Player wins 1 point!";
         playerScore += 1;
         console.log(playerScore);
+
     }
 
     else {
         console.log("Computer wins 1 point!" + playerChoice + computerChoice);
         ticker.textContent = "Computer wins 1 point!";
+        console.log(computerScore);
+
 
         
         computerScore += 1;
+
     }
 }
 

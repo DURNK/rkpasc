@@ -6,12 +6,7 @@ flex-direction: column;
 
 }
 
-.header {
-    display: flex;
-    background-color: rgb(93, 93, 93);
-    MIN-height: auto;
-    min-width: 100%;
-}
+
 
 .game {
     display: flex;
@@ -49,15 +44,38 @@ flex-direction: column;
 .rock {
     background-color: antiquewhite;
     color: black;
+    font-weight:bolder;
+    font-family: 'Asset', cursive;
+
 }
 
 .paper {
     background-color: antiquewhite;
     color: black;
+    font-family: 'Playfair Display SC', serif;
+
 }
 .scissors {
     background-color: antiquewhite;
     color: black;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.header {
+    display: flex;
+    MIN-height: auto;
+    min-width: 100%;
+    background-color: antiquewhite;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 
