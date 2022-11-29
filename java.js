@@ -5,7 +5,7 @@ let playerChoice; //global variable that can be modified by the
 
 //Game gets stuck after being reset, maybe we're not resetting everything
          
-function sleep(functionToExecute, delay){
+function sleep(pfunctionToExecute, delay){
     let timeoutId = setTimeout(functionToExecute(), delay);
     return timeoutId;
   }
@@ -24,7 +24,7 @@ return computerChoice;
 function getPlayerChoice() {
     const buttons = document.querySelector(".buttons"); //selects the buttons div
     buttons.style.cssText = 'pointer-events: ';
-    buttons.addEventListener('click', (e) => {    
+    buttons.addEventListener('click', (e) => {
     const ticker = document.querySelector('.ticker')
     //console.log(e.target.className); //e is the location of the selected button and classname is the name of the selected class
     playerChoice = e.target.className; 
